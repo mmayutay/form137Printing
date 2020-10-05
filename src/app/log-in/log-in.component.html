@@ -1,0 +1,18 @@
+<div class="row" *ngIf="show">
+    <div class="column">
+        <div class="card">
+            <img src="https://i.pinimg.com/originals/79/76/fd/7976fdc2a815cf335c42e0df55bb43d5.png">
+            <h1>WELCOME</h1>
+            <div class="inputContainer">
+                <i class="fa fa-user icon"></i>
+                <input type="text" placeholder="Username" [(ngModel)]="name">
+            </div><br>
+            <div class="inputContainer">
+                <i class="fa fa-key icon"></i>
+                <input [type]="showPass" placeholder="Password" [(ngModel)]="password" id="password">
+            </div>
+            <p>Show Password<input type="checkbox" class="cbox" (click)="showPasswordClick()"></p><br>
+            <button (click)="submit()">Submit</button><br>
+        </div>
+    </div>
+</div>

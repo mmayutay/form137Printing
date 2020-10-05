@@ -1,0 +1,240 @@
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 55%;
+  padding: 0px 10px;
+}
+.searchColumn {
+  float: left;
+  width: 40%;
+  padding: 0px 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: rgba(172, 172, 172, 0.5);
+  height: 450px;
+  overflow: auto;
+}
+.search {
+  width: 80%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: rgba(172, 172, 172, 0.5);
+}
+  h1 {
+    margin-left: 20%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+  }
+  .show {
+   display: none;
+  }
+  table {
+    border-collapse: collapse;
+    overflow: auto;
+  }
+  table, td, th {
+    border: 1px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  th {
+    width: 30%;
+  }
+  tr:hover {
+    background-color: rgba(233, 233, 233, 0.753);
+  }
+  ul {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    float: right;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: rgb(24, 143, 0);
+    border-radius: 10px;
+  }
+
+  #logout {
+    background-color: #333;
+    border: none;
+    border-radius: 10px;
+  }
+  #logout:hover {
+    background-color: rgba(223, 0, 0, 0.904);
+  }
+.sidenav {
+  height: 100%;
+  width: 246px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:rgba(51, 51, 51, 0.8);
+  overflow-x: hidden;
+  transition-duration: 0.4s;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+.close  {
+  background-color: rgba(51, 51, 51, 0.0);
+  color: white;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  float: right;
+}
+.close:hover {
+  background-color: #fa4f4f;
+  color: red;
+}
+.logOut {
+  text-align: center;
+}
+.logOut:hover {
+  color: red;
+}
+.openNavBar {
+  background-color: rgba(172, 172, 172, 0.4);
+  border-radius: 50%;
+  font-size: 30px;
+  font-weight: lighter;
+  border: none;
+  padding: 15px;
+}
+.openNavBar:hover {
+  background-color: rgba(233, 233, 233, 0.753);
+}
+img {
+  margin-left: 35%;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(92, 90, 90, 0.61);
+}
+.icon {
+  margin-top: 15px;
+}
+div.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+div.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #38af38;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+div.example button:hover {
+  background: #70db6d;
+}
+
+div.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+* {
+  box-sizing: border-box;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border-radius: 15px;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.edit {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.edit:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.delete {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #f44336;
+}
+
+.delete:hover {
+  background-color: #f44336;
+  color: white;
+}

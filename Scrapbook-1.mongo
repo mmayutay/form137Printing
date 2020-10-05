@@ -1,0 +1,9 @@
+db.studentsName.insert(
+    {
+        schoolYear: "admin",
+        name: "admin",
+        adviser: "admin",
+        section: "admin",
+        images: []
+    }
+)

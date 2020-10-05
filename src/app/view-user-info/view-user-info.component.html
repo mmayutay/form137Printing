@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="column">
+        <div class="card">
+            <button (click)="backToDashboard()">Back<<</button>
+            <h1>Edit User Info</h1>
+            <input type="text" placeholder="Full Name" [(ngModel)]="data.name">
+            <input type="text" placeholder="Username" [(ngModel)]="data.section">
+            <input [type]="showPass" placeholder="Password" [(ngModel)]="data.schoolYear"><br>
+            <p>Show Password<input type="checkbox" class="cbox" (click)="showPasswordClick()"></p><br>
+            <button class="adder" (click)="submitData()">Update</button>
+        </div>
+    </div>
+</div>

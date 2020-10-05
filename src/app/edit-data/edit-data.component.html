@@ -1,0 +1,26 @@
+<div class="sidenav">
+    <br><br><br>
+</div>
+<div class="row">
+    <div class="column">
+        <div class="card">
+            <h1>Student's Data</h1>
+            <input type="text" placeholder="S.Y." [(ngModel)]="userArray[0].schoolYear" required>
+            <input type="text" placeholder="Full Name" [(ngModel)]="userArray[0].name" required>
+            <input type="text" placeholder="Adviser" [(ngModel)]="userArray[0].adviser" required>
+            <input type="text" placeholder="Section" [(ngModel)]="userArray[0].section" required><br>
+            <button (click)="showAllImages()">Show Form 137</button><br>
+            <div *ngIf="toggle">
+                <button (click)="addAnother()">Add Another</button><br>
+                <input *ngIf="imageAdd" type="file" (change)="fileUpload($event)">
+                <ul *ngFor="let img of userArray[0].images; let i = index">
+                    <li (click)="imagePreview(img)">{{img}}</li>
+                    <div style="float: right;">
+                        <button (click)="deleteImage(i)">Delete</button>
+                    </div><br>
+                </ul>
+            </div>
+            <button class="adder" (click)="submit()">Submit</button>
+        </div>
+    </div>
+</div>

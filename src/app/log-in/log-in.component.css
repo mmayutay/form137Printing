@@ -1,0 +1,96 @@
+/* Float four columns side by side */
+.column {
+    width: 100%;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row {margin: 0 -5px;}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Style the counter cards */
+  .card {
+    width: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(148, 148, 148, 0.3);
+    margin-left: 35%;
+    margin-right: 35%;
+    padding: 30px;
+    margin-top: 5%;
+    overflow: hidden;
+
+  }
+  input {
+    width: 100%;
+    padding: 12px 35px;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+    border-radius: 15px;
+  }
+  button {
+    width: 100%;
+    height: 40px;
+    background-color: rgb(24, 139, 1);
+    border: none;
+    box-sizing:border-box;
+    border-radius: 10px;
+  }
+  button:hover {
+    color: rgba(255, 255, 255, 0.562);
+    background-color: rgb(60, 180, 0);
+  }
+  h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    margin-bottom: 30px;
+    width: auto;
+  }
+  body {
+    height: 500px;
+  }
+  .inputContainer i {
+    position: absolute;
+ }
+ .inputContainer {
+    width: 100%;
+    margin-bottom: 10px;
+ }
+ .icon {
+    padding: 13px;
+    color: rgb(49, 0, 128);
+    width: 70px;
+    text-align: left;
+ }
+ .cbox {
+   float: right;
+   width: 20px;
+ }
+ p {
+   padding-left: 63%;
+ }
+ .showPassword {
+   width: auto;
+   height: auto;
+   position: static;
+ }
+ img {
+   width: 170px;
+   height: 170px;
+ }

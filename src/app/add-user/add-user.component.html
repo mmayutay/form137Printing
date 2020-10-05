@@ -1,0 +1,25 @@
+<div class="sidenav">
+    <br><br><br>
+    <img src="https://www.kindpng.com/picc/m/78-785917_user-login-function-name-avatar-user-icon-hd.png">
+    <h1 class="userAvatar">{{this.studentsAuthentication.name}}</h1>
+    <a (click)="reRouteClick('/administrator/' + this.studentsAuthentication.name + '/' +this.studentsAuthentication.auth)">Add Student's Info</a><br>
+    <a *ngIf="hideAdd" (click)="reRouteClick('/add-user/' + this.studentsAuthentication.name + '/' +this.studentsAuthentication.auth)">Add New User</a><br>
+    <a (click)="reRouteClick('/dashboard/' + this.studentsAuthentication.name + '/' +this.studentsAuthentication.auth)">Show Student's</a><br><br><br><br><br><br><br>
+    <a class="logOut" (click)="logOut()">Log-out</a><br>
+</div><br>
+<div class="row">
+    <div class="column">
+        <div class="card">
+            <div class="form">
+                <h1>New User Info</h1>
+                <input type="text" placeholder="First Name" [(ngModel)]="addUser.FirstName">
+                <input type="text" placeholder="Middle Name" [(ngModel)]="addUser.MiddleName">
+                <input type="text" placeholder="Last Name" [(ngModel)]="addUser.LastName">
+                <input type="text" placeholder="Username" [(ngModel)]="addUser.Section">
+                <input type="password" placeholder="Password" [(ngModel)]="addUser.SchoolYear">
+                <input type="password" placeholder="Confirm Password" [(ngModel)]="confirmPassword">
+                <button class="adder" (click)="submitData()">Add User</button>
+            </div>
+        </div>
+    </div>
+</div>
