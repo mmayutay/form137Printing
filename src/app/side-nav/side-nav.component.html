@@ -1,6 +1,10 @@
 <div (mouseleave)="showIdentifier(true)" class="sidenav" [class.showSideNav]="!hide">
 
     <p class="user" (click)="showUserInfo()">{{ studentsAuthentication.name }}</p>
+    <p *ngIf="hideAdd"
+        (click)="reRouteClick('/allusers/' + this.studentsAuthentication.name + '/' + this.studentsAuthentication.auth)">
+        Show All Users
+    </p>
     <p class="addStudent"
         (click)="reRouteClick('/administrator/' + this.studentsAuthentication.name + '/' +this.studentsAuthentication.auth)">
         Add
@@ -16,8 +20,8 @@
 </div>
 
 <div (mouseover)="showIdentifier(false)" class="toggler">
-    <!-- <i class="fa fa-bars openNavBar"></i> -->
     <i class="fa fa-user openNavBar User"></i>
+    <i *ngIf="hideAdd" class="fa fa-eye openNavBar"></i>
     <i class="fa fa-plus openNavBar"></i>
     <i  *ngIf="hideAdd" class="fa fa-user-plus openNavBar"></i>
     <i class="fa fa-list openNavBar"></i>

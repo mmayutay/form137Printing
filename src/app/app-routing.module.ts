@@ -7,9 +7,11 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { EditDataComponent } from './edit-data/edit-data.component';
 import { ViewUserInfoComponent } from './view-user-info/view-user-info.component'
 import { NotFoundComponent } from './not-found/not-found.component'
+import { AllusersComponent } from './allusers/allusers.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'log-in', pathMatch: 'full'},
+  {path: 'allusers/:name/:auth', component:  AllusersComponent},
   {path: 'log-in', component: LogInComponent},
   {path: 'dashboard/:name/:auth', component: DashboardComponent},
   {path: 'administrator/:name/:auth', component: AddToListComponent},

@@ -14,6 +14,7 @@ import { EditDataComponent } from './edit-data/edit-data.component';
 import { ViewUserInfoComponent } from './view-user-info/view-user-info.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { AllusersComponent } from './allusers/allusers.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     ViewUserInfoComponent,
     NotFoundComponent,
     SideNavComponent,
+    AllusersComponent,
   ],
   imports: [
     BrowserModule,

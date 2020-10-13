@@ -1,0 +1,24 @@
+<app-side-nav>
+</app-side-nav>
+
+<div class="row">
+    <div class="column">
+        <div class="card">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th class="actions">Actions</th>
+                </tr>
+                <tr *ngFor="let val of allStudentsInfo; let i = index">
+                    <td>{{val.name}}</td>
+                    <td>{{val.section}}</td>
+                    <td>{{val.schoolYear}}</td>
+                    <td class="actions">
+                        <button (click)="deleteStudentsInfo(val, i)" class="button delete">Delete</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

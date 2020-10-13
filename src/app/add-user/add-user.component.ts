@@ -87,7 +87,7 @@ export class AddUserComponent implements OnInit {
           this.addUser.FirstName + " added as a user succesfully!",
           "success"
         ).then((data)  => {
-          this.router.navigate(['/dashboard/admin/true']);
+          this.router.navigate(['/dashboard/admin /true']);
         })
       })
     }
