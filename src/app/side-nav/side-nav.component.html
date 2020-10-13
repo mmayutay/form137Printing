@@ -1,0 +1,25 @@
+<div (mouseleave)="showIdentifier(true)" class="sidenav" [class.showSideNav]="!hide">
+
+    <p class="user" (click)="showUserInfo()">{{ studentsAuthentication.name }}</p>
+    <p class="addStudent"
+        (click)="reRouteClick('/administrator/' + this.studentsAuthentication.name + '/' +this.studentsAuthentication.auth)">
+        Add
+        Student's Info</p>
+    <p class="addUser" *ngIf="hideAdd"
+        (click)="reRouteClick('/add-user/' + this.studentsAuthentication.name + '/' +this.studentsAuthentication.auth)">
+        Add
+        New User</p>
+    <p class="showStudents" (click)="reRouteClick('/dashboard/' + this.studentsAuthentication.name + '/' +this.studentsAuthentication.auth)">
+        Show
+        Student's</p>
+    <p class="logOut" class="logOut" (click)="logOut()">Log-out</p>
+</div>
+
+<div (mouseover)="showIdentifier(false)" class="toggler">
+    <!-- <i class="fa fa-bars openNavBar"></i> -->
+    <i class="fa fa-user openNavBar User"></i>
+    <i class="fa fa-plus openNavBar"></i>
+    <i  *ngIf="hideAdd" class="fa fa-user-plus openNavBar"></i>
+    <i class="fa fa-list openNavBar"></i>
+    <i class="fa fa-lock openNavBar"></i>
+</div>

@@ -24,7 +24,6 @@ export class ViewUserInfoComponent implements OnInit {
     this.currentUser = this.activeRoute.snapshot.params.name
     this.userId = this.activeRoute.snapshot.params.id
     this.http.getOneStudent(this.userId).subscribe((data) => {
-      console.log(data)
       this.data = data[0]
     })
   }

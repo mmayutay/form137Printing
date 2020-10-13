@@ -1,24 +1,51 @@
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  
+}
+
 /* Float four columns side by side */
 .column {
-  float: left;
-  width: 55%;
+  /* float: left; */
+  width: 75%;
+  margin:0 auto;
+  box-sizing: border-box;
+  min-width: 700px;
   padding: 0px 10px;
 }
-.searchColumn {
+
+/* .searchColumn {
   float: left;
-  width: 40%;
+  width: 100%;
   padding: 0px 10px;
-}
+} */
 
 /* Remove extra left and right margins, due to padding */
 
 /* Clear floats after the columns */
-.row:after {
+/* .row:after {
   content: "";
   display: table;
   clear: both;
-}
+} */
+@media screen and (max-width: 1300px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
 
+  .row {
+    padding-left: 50px;
+  }
+}
 /* Responsive columns */
 @media screen and (max-width: 600px) {
   .column {
@@ -28,25 +55,77 @@
   }
 }
 
+::placeholder {
+  color: rgb(8, 75, 141);
+}
+
 /* Style the counter cards */
 .card {
-  margin-top: 10%;
-  margin-bottom: 10%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
+  /* margin-top: 10%; */
+  margin: 50px auto;
+  border-radius: 4px;
+  padding:0 20px;
+  box-sizing: border-box;
   text-align: center;
-  background-color: rgba(172, 172, 172, 0.5);
-  height: 450px;
-  overflow: auto;
+  /* height: 450px; */
+  background-color: rgb(255, 255, 255, .8);
+  overflow: show;
+  box-shadow: 1px 3px 5px rgba(29, 29, 29, .6);
+}
+
+.actions {
+  text-align: center !important;
+  width: 220px;
+  padding: 11px 1px;
+}
+
+
+
+.sbtn {
+  padding: 8px 20px;
+  margin-left:10px;
+  border-radius: 2px;
+  border:none;
+  background-color: white;
+  color:rgb(3, 83, 231);
+  transition: .3s;
+  font-size: 16px;
+  font-weight: 600 !important; 
+  box-shadow: 0px 1px 2px rgb(37, 37, 37, .6);
+}
+
+.showAll {
+  color: rgb(3, 131, 103);
+}
+
+.sbar {
+  padding: 8px;
+  transition: .5s;
+  width: 200px;
+  border-radius: 2px;
+  border:1px solid rgb(53, 114, 172);
+}
+
+.sbtn:hover {
+  box-shadow: 0px 4px 5px rgba(46, 46, 46, 0.8);
+  filter: brightness(140%);
+}
+
+.sbtn:focus {
+  box-shadow: 0px 1px 2px rgb(39, 39, 39, .6);
+  outline: none;
+}
+
+.sbar:focus {
+  border-color: rgb(0, 81, 255);
+  outline-offset: 2px;
+  outline-color: rgb(176, 212, 248);
+  width: 300px;
 }
 .search {
-  width: 80%;
-  margin-top: 10%;
-  margin-bottom: 10%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
-  background-color: rgba(172, 172, 172, 0.5);
+  padding:20px 0;
+  text-align: right;
+  /* background-color: rgba(243, 241, 241, 0.5); */
 }
   h1 {
     margin-left: 20%;
@@ -59,16 +138,43 @@
   table {
     border-collapse: collapse;
     overflow: auto;
+    width:100%;
+    box-sizing: border-box;
+    border:none;
+    margin: 0;
   }
-  table, td, th {
-    border: 1px solid black;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  table tr {
+    border-bottom: 1px solid rgba(118, 135, 152, .3);
+    margin-top:1px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    font-size: 15px;
+    transition: .3s;
+    font-weight: 450;
+    color: rgb(1, 51, 85);
   }
-  th {
-    width: 30%;
+
+  table td, th {
+    padding: 11px 10px;
+    text-align: left;
+  }
+  table:last-child {
+    border-color:transparent -important;
+  }
+
+ 
+  
+  table th {
+    padding: 10px 15px;
+    background: rgba(204, 216, 224, 0.5);
+    /* background:rgba(255, 255, 255, 0.9); */
+    /* box-shadow: 0px 2px 7px rgb(37, 37, 37, .2); */
+
+    color: rgb(2, 64, 116);
   }
   tr:hover {
-    background-color: rgba(233, 233, 233, 0.753);
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 2px 7px rgb(37, 37, 37, .2);
   }
   ul {
     position: -webkit-sticky;
@@ -107,17 +213,7 @@
   #logout:hover {
     background-color: rgba(223, 0, 0, 0.904);
   }
-.sidenav {
-  height: 100%;
-  width: 246px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color:rgba(51, 51, 51, 0.8);
-  overflow-x: hidden;
-  transition-duration: 0.4s;
-}
+
 
 .sidenav a {
   padding: 6px 8px 6px 16px;
@@ -151,14 +247,7 @@
 .logOut:hover {
   color: red;
 }
-.openNavBar {
-  background-color: rgba(172, 172, 172, 0.4);
-  border-radius: 50%;
-  font-size: 30px;
-  font-weight: lighter;
-  border: none;
-  padding: 15px;
-}
+
 .openNavBar:hover {
   background-color: rgba(233, 233, 233, 0.753);
 }
@@ -172,69 +261,51 @@ img {
 .icon {
   margin-top: 15px;
 }
-div.example input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
-}
 
-div.example button {
-  float: left;
-  width: 20%;
-  padding: 10px;
-  background: #38af38;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none;
-  cursor: pointer;
-}
 
-div.example button:hover {
-  background: #70db6d;
-}
-
-div.example::after {
-  content: "";
-  clear: both;
-  display: table;
-}
 * {
   box-sizing: border-box;
 }
 .button {
-  background-color: #4CAF50; /* Green */
-  border-radius: 15px;
+  background-color: rgb(255, 255, 255); /* Green */
+  border-radius: 3px;
   border: none;
-  color: white;
   text-align: center;
   text-decoration: none;
+  transition: .3s;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 14px;
+  padding: 5px 10px;
+  margin: 4px 5px;
+  color: white; 
+  font-weight:550;
   cursor: pointer;
+  box-shadow: 0px 1px 2px rgb(37, 37, 37, .6);
 }
 .edit {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #008CBA;
+  color: rgb(31, 100, 190);
+
 }
 
-.edit:hover {
-  background-color: #008CBA;
-  color: white;
+.print {
+  color: rgb(2, 121, 115);
 }
-
 .delete {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #f44336;
+  color:rgb(184, 61, 61);
 }
 
-.delete:hover {
-  background-color: #f44336;
-  color: white;
+.button:hover {
+  box-shadow: 0px 4px 5px rgba(46, 46, 46, 0.8);
+  filter: brightness(140%);
 }
+
+.button:focus {
+  box-shadow: 0px 1px 2px rgb(39, 39, 39, .6);
+  outline: none;
+}
+
+/* 
+.button:active {
+  box-shadow: 0px 2px 3px rgba(77, 76, 76, .8);
+  outline: none;
+} */

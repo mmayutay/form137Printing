@@ -1,0 +1,63 @@
+.toggler {
+    background-color: rgb(1, 19, 36);
+    height:100vh;
+    /* width:60px; */
+    display:inline;
+    position: fixed;
+    top:0;
+    z-index:2;
+  }
+  
+  .openNavBar {
+    background-color: rgb(3, 85, 133);
+    font-size: 21px;
+    font-weight: lighter;
+    border: none;
+    padding: 15px;
+    display: block;
+  }
+  .User {
+    background-color: rgb(5, 127, 184) !important;
+  }
+  .sidenav {
+    padding-left: 50px;
+    height: 100%;
+    width: 230px;
+    
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: -230px;
+    transition: .3s;
+    background-color:rgb(9, 41, 71);
+    overflow-x: hidden;
+    transition-duration: 0.4s;
+  }
+.showSideNav {
+    left:0;
+}
+
+p {
+    padding: 15px;
+    margin:1px;
+    color:white;
+    cursor: pointer;
+}
+
+.fa {
+    color: black;
+}
+
+
+
+p:hover {
+    background: rgb(15, 76, 138);
+}
+
+.user:hover .fa-user {
+     background-color: rgb(43, 133, 192) !important; 
+    }
+.addStudent:hover .fa-plus { background-color: rgb(43, 133, 192) !important;}
+.addUser:hover .fa-user-plus { background-color: rgb(43, 133, 192);}
+.logOut:hover  .fa-lock { background-color: rgb(43, 133, 192);}
+.showStudents:hover .fa-list { background-color: rgb(43, 133, 192);}

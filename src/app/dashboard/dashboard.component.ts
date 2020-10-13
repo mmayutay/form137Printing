@@ -12,9 +12,9 @@ import * as printJS from 'print-js';
 export class DashboardComponent implements OnInit {
   public disableShow = false
   public forTheCurrentUser = []
-  public hideAdd  = false
+  public hideAdd = false
   public userID = ""
-  public studentsAuthentication = {name: "", auth: false}
+  public studentsAuthentication = { name: "", auth: false }
   public allStudentsInfo = []
   public hide = false;
   public printableForms = []
@@ -34,15 +34,15 @@ export class DashboardComponent implements OnInit {
     this.http.getStudents().subscribe((studentsInfo) => {
       this.allStudents = studentsInfo
       this.allStudents.forEach(element => {
-        if(element.images.length != 0) {
+        if (element.images.length != 0) {
           this.allStudentsInfo.push(element)
-        }else {
-          if(this.studentsAuthentication.name == element.section) {
+        } else {
+          if (this.studentsAuthentication.name == element.section) {
             this.forTheCurrentUser.push(element)
             this.userID = this.forTheCurrentUser[0]._id
             if (this.forTheCurrentUser[0].adviser == "admin") {
               this.hideAdd = true
-            }else{
+            } else {
               this.hideAdd = false
             }
           }
@@ -58,13 +58,17 @@ export class DashboardComponent implements OnInit {
         this.router.navigate(['/log-in'])
       }
     })
+    
   }
 
   onKey(value) {
     this.studentsName = value.target.value.toLowerCase()
   }
 
+  
+
   showUserInfo() {
+    
     Swal.fire({
       title: this.studentsAuthentication.name,
       text: "Do you want to edit your about info?",
@@ -74,30 +78,38 @@ export class DashboardComponent implements OnInit {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes!'
     }).then((result) => {
-      if(result.value) {
-        this.router.navigate(['/view-user/'+this.studentsAuthentication.name + '/'+this.userID])
+      if (result.value) {
+        this.router.navigate(['/view-user/' + this.studentsAuthentication.name + '/'+ this.studentsAuthentication.auth  + '/' + this.userID])
       }
     })
   }
 
   showValue() {
-    this.disableShow = true 
-    let counter  = 0
-    this.userArray = []
-    this.allStudents.forEach(element => {
-      if(element.images.length != 0) {
-        if (element.name.toLowerCase().includes(this.studentsName)) {
-          counter += 1
-          this.userArray.push(element)
-          this.allStudentsInfo = this.userArray
+    if (this.studentsName != "") {
+      this.disableShow = true
+      let counter = 0
+      this.userArray = []
+      this.allStudents.forEach(element => {
+        if (element.images.length != 0) {
+          if (element.name.toLowerCase().includes(this.studentsName)) {
+            counter += 1
+            this.userArray.push(element)
+            this.allStudentsInfo = this.userArray
+          }
         }
+      });
+      if (counter == 0) {
+        Swal.fire(
+          "Oops..",
+          "No record found",
+          "error"
+        )
       }
-    });
-    if(counter == 0) {
-      Swal.fire(
-        "Oops..",
-        "No record found",
-        "error"
+    }else {
+      Swal.fire (
+        "Hey!",
+        "You must enter a key to search!",
+        "warning"      
       )
     }
     this.studentsName = ""
@@ -140,7 +152,6 @@ export class DashboardComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
         this.http.authenticationVerify({ auth: 'false' }).subscribe(data => {
-          console.log(data)
           this.router.navigate(['/log-in'])
         })
       }
@@ -152,11 +163,11 @@ export class DashboardComponent implements OnInit {
     this.http.getStudents().subscribe((studentsInfo) => {
       this.json = studentsInfo
       this.json.forEach(element => {
-        if(element.images.length != 0) {
+        if (element.images.length != 0) {
           this.showSuggestedStudents.push(element)
         }
       })
-      this.allStudentsInfo = this.showSuggestedStudents 
+      this.allStudentsInfo = this.showSuggestedStudents
     })
     this.studentsName = ""
   }
@@ -177,22 +188,21 @@ export class DashboardComponent implements OnInit {
     let text = $event.target.options[$event.target.options.selectedIndex].text;
     this.studentsName = text
   }
-  reRouteClick(route){
-    console.log(route)
-    this.router.navigate(['/'+route])
+  reRouteClick(route) {
+    this.router.navigate(['/' + route])
   }
-  editStudentsInfo(student){
+  editStudentsInfo(student) {
     Swal.fire({
       title: 'Are you sure?',
-      text: "You want to update  " + student.name+"'s record?",
+      text: "You want to update  " + student.name + "'s record?",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Yes, Edit it!'
     }).then((result) => {
-      if(result.value) {
-        this.router.navigate(['/edit-user/' +'/'+ this.studentsAuthentication.name+'/'+student._id])
+      if (result.value) {
+        this.router.navigate(['/edit-user/' + this.studentsAuthentication.name + '/'+ this.studentsAuthentication.auth  + '/'  + student._id])
       }
     })
 
@@ -200,7 +210,7 @@ export class DashboardComponent implements OnInit {
   deleteStudentsInfo(student, index) {
     Swal.fire({
       title: 'Are you sure?',
-      text: "You want to delete  " + student.name+"'s record?",
+      text: "You want to delete  " + student.name + "'s record?",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -209,14 +219,14 @@ export class DashboardComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
         this.http.deleteStudentsInfo(student).subscribe((res) => {
-          if(res) {
+          if (res) {
             this.allStudentsInfo.splice(index, 1)
             Swal.fire(
               'Deleted!',
-              student.name +' was deleted successfully!',
+              student.name + ' was deleted successfully!',
               'success'
             ).then(() => {
-              location.reload()
+              // location.reload()
             })
           }
         })

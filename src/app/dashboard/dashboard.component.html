@@ -1,44 +1,38 @@
-<div class="sidenav" *ngIf="hide">
-    <button class="close" (click)="showIdentifier(false)">X</button><br><br><br>
-    <img (click)="showUserInfo()"  src="https://www.kindpng.com/picc/m/78-785917_user-login-function-name-avatar-user-icon-hd.png">
-    <h1>{{this.studentsAuthentication.name}}</h1>
-    <br><br><br><br>
-    <a (click)="reRouteClick('/administrator/' + this.studentsAuthentication.name + '/' +this.studentsAuthentication.auth)">Add Student's Info</a><br>
-    <a *ngIf="hideAdd" (click)="reRouteClick('/add-user/' + this.studentsAuthentication.name + '/' +this.studentsAuthentication.auth)">Add New User</a><br>
-    <a (click)="reRouteClick('/dashboard/' + this.studentsAuthentication.name + '/' +this.studentsAuthentication.auth)">Show Student's</a><br><br><br><br><br>
-    <a class="logOut" (click)="logOut()">Log-out</a><br>
-</div><br>
+<app-side-nav>
+</app-side-nav>
+
 <div class="row">
-    <div class="searchColumn">
-        <div *ngIf="!hide">
-            <button (click)="showIdentifier(true)" class="openNavBar">Menu</button>
-        </div>
-        <div class="search">
-            <div class="example" style="margin:auto;max-width:300px">
-                <input autocomplete="off" type="text" placeholder="Search.." name="search2" (keyup)="onKey($event)" [value]="studentsName">
-                <button type="submit" (click)="showValue()"><i class="fa fa-search"></i></button>
-            </div>
-            <button *ngIf="disableShow" (click)="showAllStudents()">Show All</button>
-        </div>
-    </div>
     <div class="column">
         <div class="card">
+            <div class="search">
+                <form>
+                <input class="sbar" autocomplete="off" type="text" placeholder="Search.." name="search2"
+                    (keyup)="onKey($event)" [value]="studentsName">
+              
+                    <button class="sbtn" type="submit" (click)="showValue()">Search</button>
+                <button class="sbtn" *ngIf="disableShow" (click)="showAllStudents()">Show All</button>
+
+                </form>
+
+            </div>
+
             <table>
                 <tr>
                     <th>Year</th>
                     <th>Name</th>
                     <th>Section</th>
                     <th>Adviser</th>
-                    <th>Actions</th>
-                    <th></th>
+                    <th class="actions">Actions</th>
                 </tr>
                 <tr *ngFor="let val of allStudentsInfo; let i = index">
-                    <td (click)="showUserDetails(val)">{{val.schoolYear}}</td>
+                    <td>{{val.schoolYear}}</td>
                     <td>{{val.name}}</td>
                     <td>{{val.section}}</td>
                     <td>{{val.adviser}}</td>
-                    <td><button (click)="editStudentsInfo(val)" class="button edit">Edit</button></td>
-                    <td><button (click)="deleteStudentsInfo(val, i)" class="button delete">Delete</button></td>
+                    <td class="actions">
+                        <button (click)="showUserDetails(val)" class="button print">Print</button>
+                        <button (click)="editStudentsInfo(val)" class="button edit">Edit</button>
+                        <button (click)="deleteStudentsInfo(val, i)" class="button delete">Delete</button></td>
                 </tr>
             </table>
         </div>

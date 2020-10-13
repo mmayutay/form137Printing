@@ -14,8 +14,8 @@ const routes: Routes = [
   {path: 'dashboard/:name/:auth', component: DashboardComponent},
   {path: 'administrator/:name/:auth', component: AddToListComponent},
   {path: 'add-user/:name/:auth', component: AddUserComponent},
-  {path: 'edit-user/:name/:id', component:  EditDataComponent},
-  {path: 'view-user/:name/:id', component: ViewUserInfoComponent},
+  {path: 'edit-user/:name/:auth/:id', component:  EditDataComponent},
+  {path: 'view-user/:name/:auth/:id', component: ViewUserInfoComponent},
   {path: '404-not-found', component: NotFoundComponent},
   {path:  '**', redirectTo: '404-not-found'}
 ];

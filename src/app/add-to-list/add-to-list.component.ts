@@ -55,7 +55,6 @@ export class AddToListComponent implements OnInit {
     this.studentsAuthentication.name = name
     this.studentsAuthentication.auth = auth
     this.http.authenticationVerify({name: name, auth: auth}).subscribe(information => {
-      console.log(information)
       if(!information) {
         this.router.navigate(['/log-in'])
       }
@@ -150,7 +149,6 @@ export class AddToListComponent implements OnInit {
   }
 
   reRouteClick(route){
-    console.log(route)
     this.router.navigate(['/'+route])
   }
 

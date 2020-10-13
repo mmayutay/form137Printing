@@ -28,17 +28,15 @@ export class EditDataComponent implements OnInit {
   ngOnInit(): void {
     let id = this.activeRoute.snapshot.params.id
     this.currentUser = this.activeRoute.snapshot.params.name
+    console.log(this.currentUser)
     this.studentIdentifier = id
     this.http.getOneStudent(id).subscribe((data) => {
       this.studentsData = data
       this.studentsData.forEach(element => {
         this.userArray.push(element)
-        this.http.deleteStudentsInfo(this.studentsData[0]).subscribe((data) => {
-          console.log(data)
-        })
+        console.log(this.studentsData)
       });
     })
-    console.log(this.currentUser)
   }
   imagePreview(img) {
     Swal.fire({
@@ -99,11 +97,13 @@ export class EditDataComponent implements OnInit {
       this.dataToPush.schoolYear = this.userArray[0].schoolYear
       this.dataToPush.images = this.userArray[0].images
       this.http.addStudents(this.dataToPush).subscribe((bool) => {
+          this.http.deleteStudentsInfo(this.studentsData[0]).subscribe((data) => {
+          })
         Swal.fire(
           'Good job!',
           this.userArray[0].name + ' information edited sucessfully',
           'success').then(() => {
-            this.router.navigate(['/dashboard/' + this.currentUser + '/true'])
+            this.router.navigate(['/dashboard/' + this.currentUser + '/'+true])
           })
       })
     }
